@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petsync_customer/screens/verification_screen/otp_screen.dart';
 
 class NumberScreen extends StatefulWidget {
   const NumberScreen({super.key});
@@ -8,6 +9,9 @@ class NumberScreen extends StatefulWidget {
 }
 
 class NumberScreenState extends State<NumberScreen> {
+  TextEditingController phoneController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,14 +39,28 @@ class NumberScreenState extends State<NumberScreen> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 30, right: 30, top: 100),
-              child: TextFormField(
-                maxLength: 10,
-                decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
-                    counterText: '',
-                    hintText: 'Enter Your Phone Number'),
-                keyboardType: TextInputType.number,
+              margin: const EdgeInsets.only(
+                  left: 30, right: 30, top: 30, bottom: 80),
+              child: Form(
+                key: _formKey,
+                child: TextFormField(
+                  maxLength: 10,
+                  decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      counterText: '',
+                      hintText: 'Enter Your Phone Number'),
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Enter Your Phone Number';
+                    } else if (!RegExp(r'^\+?[6-9]\d{9}$').hasMatch(value)) {
+                      return 'Enter Valid Phone Number';
+                    } else {
+                      Navigator.pushNamed(context, '/otp');
+                    }
+                    return null;
+                  },
+                ),
               ),
             ),
             Container(
@@ -54,7 +72,9 @@ class NumberScreenState extends State<NumberScreen> {
                         disabledForegroundColor: Colors.white.withOpacity(0.38),
                         disabledBackgroundColor:
                             Colors.white.withOpacity(0.12)),
-                    onPressed: () {},
+                    onPressed: () {
+                      _formKey.currentState?.validate();
+                    },
                     child: const Text('Verify Now'))),
           ],
         ),

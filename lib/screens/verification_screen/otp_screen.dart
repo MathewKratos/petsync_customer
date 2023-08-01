@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petsync_customer/constants/sizing.dart';
+import 'package:petsync_customer/screens/dashboard_screen/dashboard_screen.dart';
 import 'package:petsync_customer/screens/verification_screen/widgets/otp_form.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -11,6 +12,7 @@ class OtpScreen extends StatefulWidget {
 
 class _OtpScreenState extends State<OtpScreen> {
   bool isButtonActive = true;
+  String otpText = '';
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,9 @@ class _OtpScreenState extends State<OtpScreen> {
             const SizedBox(height: kDefaultPadding),
             const Text('Enter your OTP code here'),
             // SizedBox(height: kDefaultPadding * 4),
-            const OtpForm(),
+            OtpForm(otpText: (value) {
+              setState(() => otpText = value);
+            }),
             const SizedBox(height: kDefaultPadding * 2),
             const Text('I didn\'t receive a code!'),
             TextButton(onPressed: () {}, child: const Text('Resend code')),
@@ -54,13 +58,11 @@ class _OtpScreenState extends State<OtpScreen> {
                         disabledForegroundColor: Colors.white.withOpacity(0.38),
                         disabledBackgroundColor:
                             Colors.white.withOpacity(0.12)),
-                    onPressed: isButtonActive
-                        ? () {
-                            setState(() {
-                              isButtonActive = false;
-                            });
-                          }
-                        : null,
+                    onPressed: () {
+                      if (otpText.length == 4) {
+                        Navigator.pushReplacementNamed(context, '/dashboard');
+                      }
+                    },
                     child: const Text('Verify Now')))
           ],
         ),

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:petsync_customer/constants/sizing.dart';
 
 class OtpForm extends StatefulWidget {
-  const OtpForm({super.key});
+  final Function(String) otpText;
+  OtpForm({required this.otpText, super.key});
 
   @override
   State<OtpForm> createState() => _OtpFormState();
@@ -39,6 +40,12 @@ class _OtpFormState extends State<OtpForm> {
     });
   }
 
+  passOtpText(String value) {
+    String otp =
+        '${otpTextController1.text}${otpTextController2.text}${otpTextController3.text}${otpTextController4.text}';
+    widget.otpText(otp);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -63,6 +70,7 @@ class _OtpFormState extends State<OtpForm> {
                 if (value.length == 1) {
                   otpFocus2.requestFocus();
                 }
+                passOtpText(value);
               },
             ),
           ),
@@ -86,6 +94,7 @@ class _OtpFormState extends State<OtpForm> {
                 } else {
                   otpFocus1.requestFocus();
                 }
+                passOtpText(value);
               },
             ),
           ),
@@ -109,6 +118,7 @@ class _OtpFormState extends State<OtpForm> {
                 } else {
                   otpFocus2.requestFocus();
                 }
+                passOtpText(value);
               },
             ),
           ),
@@ -132,6 +142,7 @@ class _OtpFormState extends State<OtpForm> {
                 } else {
                   otpFocus3.requestFocus();
                 }
+                passOtpText(value);
               },
             ),
           ),

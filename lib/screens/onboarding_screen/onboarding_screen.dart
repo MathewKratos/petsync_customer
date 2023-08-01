@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:petsync_customer/constants/sizing.dart';
 import 'package:petsync_customer/models/onboarding_model.dart';
-import 'package:petsync_customer/screens/verification_screen/otp_screen.dart';
+import 'package:petsync_customer/screens/verification_screen/number_verification/number_screen.dart';
 import 'package:petsync_customer/screens/onboarding_screen/widgets/onboarding_widget.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -64,11 +64,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               padding: const EdgeInsets.all(kDefaultPadding),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const OtpScreen(),
-                      ));
+                  Navigator.pushNamed(context, '/login');
                 },
                 child: const Text('Get Started'),
               ),
