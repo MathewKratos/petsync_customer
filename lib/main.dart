@@ -16,7 +16,7 @@ class PetsyncApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.loraTextTheme(),
       ),
-      home: const numberScreen(),
+      home: const NumberScreen(),
     );
   }
 }
