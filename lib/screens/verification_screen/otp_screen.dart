@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:petsync_customer/constants/sizing.dart';
-import 'package:petsync_customer/screens/dashboard_screen/dashboard_screen.dart';
 import 'package:petsync_customer/screens/verification_screen/widgets/otp_form.dart';
 
 class OtpScreen extends StatefulWidget {

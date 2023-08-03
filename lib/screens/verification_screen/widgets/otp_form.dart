@@ -3,7 +3,7 @@ import 'package:petsync_customer/constants/sizing.dart';
 
 class OtpForm extends StatefulWidget {
   final Function(String) otpText;
-  OtpForm({required this.otpText, super.key});
+  const OtpForm({required this.otpText, super.key});
 
   @override
   State<OtpForm> createState() => _OtpFormState();
