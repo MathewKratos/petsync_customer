@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:petsync_customer/screens/verification_screen/otp_screen.dart';
 
 class NumberScreen extends StatefulWidget {
   const NumberScreen({super.key});

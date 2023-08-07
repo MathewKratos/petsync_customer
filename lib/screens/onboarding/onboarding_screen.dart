@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:petsync_customer/constants/sizing.dart';
 import 'package:petsync_customer/models/onboarding_model.dart';
-import 'package:petsync_customer/screens/onboarding_screen/widgets/onboarding_widget.dart';
+import 'package:petsync_customer/screens/onboarding/widgets/onboarding_widget.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -44,7 +44,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     heading: pages[index].heading!,
                     description: pages[index].description!)),
           ),
-          if (currentPage == 0)
+          if (currentPage < 2)
             Positioned(
               top: 30,
               right: 15,

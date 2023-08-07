@@ -57,7 +57,7 @@ class _OtpFormState extends State<OtpForm> {
             child: TextFormField(
               controller: otpTextController1,
               focusNode: otpFocus1,
-              autofocus: true,
+              autofocus: false,
               textAlign: TextAlign.center,
               maxLength: 1,
               decoration: InputDecoration(
@@ -79,7 +79,6 @@ class _OtpFormState extends State<OtpForm> {
             child: TextFormField(
               controller: otpTextController2,
               focusNode: otpFocus2,
-              autofocus: true,
               textAlign: TextAlign.center,
               maxLength: 1,
               decoration: InputDecoration(
@@ -103,7 +102,6 @@ class _OtpFormState extends State<OtpForm> {
             child: TextFormField(
               controller: otpTextController3,
               focusNode: otpFocus3,
-              autofocus: true,
               textAlign: TextAlign.center,
               maxLength: 1,
               decoration: InputDecoration(
@@ -127,7 +125,6 @@ class _OtpFormState extends State<OtpForm> {
             child: TextFormField(
               controller: otpTextController4,
               focusNode: otpFocus4,
-              autofocus: true,
               textAlign: TextAlign.center,
               maxLength: 1,
               decoration: InputDecoration(

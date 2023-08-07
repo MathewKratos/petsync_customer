@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:petsync_customer/constants/app_route.dart';
 import 'package:petsync_customer/constants/sizing.dart';
-import 'package:petsync_customer/screens/verification_screen/widgets/otp_form.dart';
+import 'package:petsync_customer/screens/verification/widgets/otp_form.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
@@ -18,8 +19,6 @@ class _OtpScreenState extends State<OtpScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          // backgroundColor: Colors.white,
-          elevation: 0,
           title: const Text('Verify Phone Number'),
         ),
         body: Column(
@@ -59,7 +58,10 @@ class _OtpScreenState extends State<OtpScreen> {
                             Colors.white.withOpacity(0.12)),
                     onPressed: () {
                       if (otpText.length == 4) {
-                        Navigator.pushReplacementNamed(context, '/dashboard');
+                        Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            AppRoute.dashboard,
+                            ModalRoute.withName(AppRoute.splash));
                       }
                     },
                     child: const Text('Verify Now')))

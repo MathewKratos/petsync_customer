@@ -38,11 +38,6 @@ class OnboardWidget extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
             description,
-            style: const TextStyle(
-              fontSize: 17,
-              color: Colors.black38,
-              fontStyle: FontStyle.italic,
-            ),
           ),
         ),
       ],
